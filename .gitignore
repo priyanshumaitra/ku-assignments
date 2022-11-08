@@ -1,2 +1,6 @@
 ## Core auxiliary files:
+*.exe
 *.out
+
+## PDF files
+*.pdf
