@@ -1,0 +1,32 @@
+
+Student ID: 101 
+Student Name: priyanshu 
+Date of Admission: 23/12/2020 
+Course Name: Btech 
+Stream Name: IT 
+Email ID: priyanshu@gmail.com 
+Door No: 1A 
+Street Name: ABC 
+Post Office: XYZ 
+City: kolkata 
+Pincode: 700110
+
+Student ID: 102 
+Student Name: shyam 
+Date of Admission: 22/12/2020 
+Course Name: Btech 
+Stream Name: IT 
+Email ID: shyam@gmail.com 
+Door No: 2A 
+Street Name: PQR 
+Post Office: MNOP 
+City: howrah 
+Pincode: 700001
+
+Student ID: 101 
+Date of marksheet: 23/12/2020 
+CGPA: 8.000000 
+
+Student ID: 102 
+Date of marksheet: 24/12/2020 
+CGPA: 9.000000 
