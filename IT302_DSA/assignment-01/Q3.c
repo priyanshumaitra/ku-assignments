@@ -1,36 +1,31 @@
-#include<stdio.h>
-
-struct Q3 {   
-
-    float cgpa;
-    char marksheet[20], id[10];
-    
-};
-
-int main(){
-    struct Q3 s;
-    
-    int n, i;
-    
-    FILE *fpt;
-    fpt=fopen("students.txt","a");
-
-    printf("Enter number of students: ");
-    scanf("%d",&n);
-    
-    for (i=0;i<n;i++){
-        
-        printf("Enter Student ID: ");
-        scanf("%s",s.id);
-        printf("Date of issue of marksheet: ");
-        scanf("%s",s.marksheet);
-        printf("Enter CGPA: ");
-        scanf("%0.2f",&s.cgpa);
-    
-        fprintf(fpt,"\nStudent ID: %s \nDate of marksheet: %s \nCGPA: %0.2f \n",s.id,s.marksheet,s.cgpa);
-    
-    }
-
-fclose(fpt);
-return 0;
+#include <stdio.h>
+int main() {
+  int a[10][10], transpose[10][10], r, c;
+  printf("Enter rows and columns: ");
+  scanf("%d %d", &r, &c);
+  printf("\nEnter matrix elements:\n");
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    printf("Enter element a%d%d: ", i + 1, j + 1);
+    scanf("%d", &a[i][j]);
+  }
+  printf("\nEntered matrix: \n");
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    printf("%d  ", a[i][j]);
+    if (j == c - 1)
+    printf("\n");
+  }
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    transpose[j][i] = a[i][j];
+  }
+  printf("\n----Transpose of the matrix----\n");
+  for (int i = 0; i < c; ++i)
+  for (int j = 0; j < r; ++j) {
+    printf("%d  ", transpose[i][j]);
+    if (j == r - 1)
+    printf("\n");
+  }
+  return 0;
 }

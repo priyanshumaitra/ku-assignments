@@ -1,54 +1,55 @@
 #include <stdio.h>
-
-struct Q2{
-        char id[20], name[100], admi[15], course[10], stname[50], post[20], city[50], door[10], stream[20], email[60];
-	    int pin;
-    };
-
+void getMatrixElements(int matrix[][10], int row, int column) {
+   for (int i = 0; i < row; ++i) {
+      for (int j = 0; j < column; ++j) {
+         printf("Enter element %d%d: ", i + 1, j + 1);
+         scanf("%d", &matrix[i][j]);
+      }
+   }
+}
+void multiplyMatrices(int first[][10],
+                      int second[][10],
+                      int result[][10],
+                      int r1, int c1, int r2, int c2) {
+   for (int i = 0; i < r1; ++i) {
+      for (int j = 0; j < c2; ++j) {
+         result[i][j] = 0;
+      }
+   }
+   for (int i = 0; i < r1; ++i) {
+      for (int j = 0; j < c2; ++j) {
+         for (int k = 0; k < c1; ++k) {
+            result[i][j] += first[i][k] * second[k][j];
+         }
+      }
+   }
+}
+void display(int result[][10], int row, int column) {
+   printf("\n----Matrix Multiplication Result----\n");
+   for (int i = 0; i < row; ++i) {
+      for (int j = 0; j < column; ++j) {
+         printf("%d  ", result[i][j]);
+         if (j == column - 1)
+            printf("\n");
+      }
+   }
+}
 int main() {
-	    
-	int n, i;
-	
-    struct Q2 s;
-	
-    FILE *fptr;
-	fptr=(fopen("students.txt","w"));
-	if(fptr = NULL){
-        
-        puts("Can't open the file.");
-        exit(1);
-    }
-    printf("Enter number of students: ");
-	scanf("%d",&n);
-
-    for (i=0;i<n;i++) {
-		printf("----Details of Student: %d----\n",i+1);
-        printf("Enter Student ID: ");
-        scanf("%s",s.id);
-        printf("Enter Name: ");
-		scanf("%s",s.name);
-        printf("Date of Admission: ");
-        scanf("%s",s.admi);
-		printf("Course Name: ");
-        scanf("%s",s.course);
-        printf("Stream Name: ");
-        scanf("%s",s.stream);
-        printf("Email ID: ");
-        scanf("%s",s.email);
-        printf("\n----Address----\n");
-        printf("Door no: ");
-        scanf("%s",s.door);
-        printf("Street Name: ");        
-        scanf("%s",s.stname);
-        printf("Post Office: ");
-        scanf("%s",s.post);
-        printf("City: ");
-        scanf("%s",s.city);
-        printf("Pincode: ");
-        scanf("%d",&s.pin);
-    
-		fprintf(fptr,"\nStudent ID: %s \nStudent Name: %s \nDate of Admission: %s \nCourse Name: %s \nStream Name: %s \nEmail ID: %s \nDoor No: %s \nStreet Name: %s \nPost Office: %s \nCity: %s \nPincode: %d\n",s.id,s.name,s.admi,s.course,s.stream,s.email,s.door,s.stname,s.post,s.city,s.pin);
-    }
-	fclose(fptr);
-	return 0;
+   int first[10][10], second[10][10], result[10][10], r1, c1, r2, c2;
+   printf("Enter rows and column for the first matrix: ");
+   scanf("%d %d", &r1, &c1);
+   printf("Enter rows and column for the second matrix: ");
+   scanf("%d %d", &r2, &c2);
+   while (c1 != r2) {
+      printf("Error! Enter rows and columns again.\n");
+      printf("Enter rows and columns for the first matrix: ");
+      scanf("%d%d", &r1, &c1);
+      printf("Enter rows and columns for the second matrix: ");
+      scanf("%d%d", &r2, &c2);
+   }
+   getMatrixElements(first, r1, c1);
+   getMatrixElements(second, r2, c2);
+   multiplyMatrices(first, second, result, r1, c1, r2, c2);
+   display(result, r1, c2);
+   return 0;
 }
